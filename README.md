@@ -2,8 +2,11 @@
 
 ## Downloads
 **Latest Stable Release:**
-- [**Download win-x64.exe**](https://github.com/ahmadmdabit/AppUserDataScanner/releases/latest/download/AppUserDataScanner-win-x64.exe) (Recommended for most Windows 10/11)
-- [**Download win-x86.exe**](https://github.com/ahmadmdabit/AppUserDataScanner/releases/latest/download/AppUserDataScanner-win-x86.exe)
+- **win-x64**: [**Download .zip**](https://github.com/ahmadmdabit/AppUserDataScanner/releases/latest/download/AppUserDataScanner-win-x64.zip) (Recommended for most Windows 10/11)
+- **win-x86**: [**Download .zip**](https://github.com/ahmadmdabit/AppUserDataScanner/releases/latest/download/AppUserDataScanner-win-x86.zip) 
+
+> [!TIP]
+> Download the **.zip** version if your browser shows a security warning for the direct `.exe` file.
 
 ## Executive Summary
 **App User Data Scanner** is a high-performance, zero-allocation directory crawler designed for the identification and scoring of Chromium and Electron-based application profiles. Engineered for Windows 10/11 environments, it utilizes a multi-threaded Breadth-First Search (BFS) architecture to traverse massive directory trees (e.g., `AppData`, `Program Files`) with minimal CPU and memory overhead.

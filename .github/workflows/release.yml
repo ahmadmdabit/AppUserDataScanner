@@ -42,15 +42,23 @@ jobs:
             /p:Version=${{ env.VERSION }} `
             /p:PublishAot=true
 
-      - name: Rename Output
+      - name: Package Release Assets
+        shell: pwsh
         run: |
-          mv ./publish/win-${{ matrix.arch }}/AppUserDataScanner.exe ./publish/AppUserDataScanner-win-${{ matrix.arch }}.exe
+          # Copy the EXE to the publish folder with the architecture suffix
+          Copy-Item ./publish/win-${{ matrix.arch }}/AppUserDataScanner.exe ./publish/AppUserDataScanner-win-${{ matrix.arch }}.exe
+          
+          # Create the ZIP archive
+          Compress-Archive -Path ./publish/win-${{ matrix.arch }}/AppUserDataScanner.exe `
+                           -DestinationPath ./publish/AppUserDataScanner-win-${{ matrix.arch }}.zip
 
       - name: Upload Release Assets
         uses: softprops/action-gh-release@v2
         if: startsWith(github.ref, 'refs/tags/')
         with:
-          files: ./publish/AppUserDataScanner-win-${{ matrix.arch }}.exe
+          files: |
+            ./publish/AppUserDataScanner-win-${{ matrix.arch }}.exe
+            ./publish/AppUserDataScanner-win-${{ matrix.arch }}.zip
           generate_release_notes: true
           tag_name: ${{ github.ref_name }}
           name: Release ${{ github.ref_name }}
