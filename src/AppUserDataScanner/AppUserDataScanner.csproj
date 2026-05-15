@@ -1,0 +1,46 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net10.0</TargetFramework>
+		<Nullable>enable</Nullable>
+		<AllowUnsafeBlocks>false</AllowUnsafeBlocks>
+		<AssemblyName>AppUserDataScanner</AssemblyName>
+		<RootNamespace>AppUserDataScanner</RootNamespace>
+		<LangVersion>latest</LangVersion>
+		<ImplicitUsings>disable</ImplicitUsings>
+		<Optimize>false</Optimize>
+		<PublishAot>false</PublishAot>
+		<!-- Package -->
+		<Title>App User Data Scanner</Title>
+		<Description>A high-performance, zero-allocation directory crawler designed for the identification and scoring of Chromium and Electron-based application profiles. Engineered for Windows 10/11 environments, it utilizes a multi-threaded Breadth-First Search (BFS) architecture to traverse massive directory trees (e.g., `AppData`, `Program Files`) with minimal CPU and memory overhead.</Description>
+		<Authors>Ahmet Fatihoğlu</Authors>
+		<Copyright>MIT - Copyright 2026 Ahmet Fatihoğlu</Copyright>
+		<PackageProjectUrl>https://ahmadmdabit.github.io</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<RepositoryUrl>https://github.com/ahmadmdabit/AppUserDataScanner</RepositoryUrl>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
+		<Optimize>true</Optimize>
+		<PublishAot>true</PublishAot>
+		<StripSymbols>true</StripSymbols>
+		<InvariantGlobalization>true</InvariantGlobalization>
+		<StackTraceSupport>true</StackTraceSupport>
+		<DebugType>none</DebugType>
+		<CopyOutputSymbolsToPublishDirectory>false</CopyOutputSymbolsToPublishDirectory>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<None Include="..\..\README.md">
+			<Pack>True</Pack>
+			<PackagePath>\</PackagePath>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.Extensions.ObjectPool" Version="10.0.8" />
+		<PackageReference Include="ZLogger" Version="2.5.10" />
+	</ItemGroup>
+
+</Project>
